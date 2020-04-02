@@ -1,3 +1,9 @@
+/*
+
+    Preferred when array is sorted
+
+*/
+
 public static int binarySearch(int[] a,int value)
 {
     int start = 0;
