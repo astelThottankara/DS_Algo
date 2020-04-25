@@ -11,6 +11,7 @@ public static int binarySearch(int[] a,int value)
     
     while(start>=end)                                   //flow control condition
     {
+        int mid = (start+end)/2;
         if(a[mid]==value)
             return mid;
         else if(value>a[mid])
