@@ -26,7 +26,7 @@ public class LinkedList
         }
     }
     
-    public void insert(int position,int data)
+    public static Node insert(int position,int data)
     {
         Node node = new Node();
         node.data = data;
@@ -42,6 +42,25 @@ public class LinkedList
             n.next = node;
             return head;
         }  
+    }
+    
+    public static Node remove(Node head, int position) 
+    {
+        Node node1 = head;
+        Node node2 = head;
+        if(position==0)
+        {
+            head = node1.next;
+            return head;
+        }
+        while(position-->1)
+        {
+            node1 = node1.next;
+            node2 = node2.next;
+        }
+        node2 = node2.next;
+        node1.next = node2.next;
+        return head;
     }
     
     public void display()
