@@ -26,12 +26,22 @@ public class LinkedList
         }
     }
     
-    public void insertAtStart(int data)
+    public void insert(int position,int data)
     {
-        Node n = new Node();
-        n.data = data;
-        n.next = head;
-        head = n;   
+        Node node = new Node();
+        node.data = data;
+        if(head==null)
+            return node;
+        else
+        {
+            Node n = head;
+            int i=0;
+            while(i++<(position-1))
+                n = n.next;
+            node.next = n.next;
+            n.next = node;
+            return head;
+        }  
     }
     
     public void display()
