@@ -8,9 +8,10 @@ public static class QuickUnion
             id = new int[n];
             size = new int[n];
             for(int i=0;i<n;i++)
+            {
                 id[i] = i;
-            for(int i=0;i<n;i++)
                 size[i] = 1;
+            }
         }
         
         public static int root(int p)
