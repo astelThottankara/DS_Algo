@@ -50,4 +50,9 @@ class BST
                 q.add(node.right);
         }
     }
+    
+    public void delete(int data)
+    {
+        //Help required here
+    }
 }
