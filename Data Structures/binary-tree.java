@@ -49,6 +49,34 @@ class BST
             else
                 q.add(node.right);
         }
+        
+        static void printInorder(Node source) 
+        { 
+            if (source == null) 
+                return; 
+
+            printInorder(source.left); 
+            System.out.print(source.data+" "); 
+            printInorder(source.right); 
+        } 
+        
+        static void printPostorder(Node temp)
+        {
+            if(source==null)
+                return;
+            printInorder(source.left); 
+            printInorder(source.right);
+            System.out.print(source.data+" "); 
+        }
+        
+        static void printPreorder(Node temp)
+        {
+            if(source==null)
+                return;
+            System.out.print(source.data+" "); 
+            printInorder(source.left); 
+            printInorder(source.right);
+        }
     }
     
     public void delete(int data)
