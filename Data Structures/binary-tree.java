@@ -77,6 +77,18 @@ class BST
             printInorder(source.left); 
             printInorder(source.right);
         }
+        
+        static int depth(Node node)
+        {
+            if(node==null)
+                return 0;
+            int left = depth(node.left);
+            int right = depth(node.right);
+            if(left>right)
+                return (left+1);
+            else
+                return (right+1);
+        }
     }
     
     public void delete(int data)
