@@ -51,7 +51,8 @@ class BST
     
     public static Node deleteNode(Node root, int value)
 	{
-	    if (root == null)  return root; 
+	    if (root == null)  
+			return root; 
         if (value < root.data) 
             root.left = deleteNode(root.left, value); 
         else if (value > root.data) 
