@@ -15,7 +15,7 @@ class Node
     }
 }
 
-class BST
+class BinaryTree
 {
     static Node root;
     
