@@ -36,26 +36,19 @@ public static void KMP_Algorithm(String pattern,String original)
 
 public static void generateLpsArray(int[] lps,int patternSize,String pattern)
     {
-        int length = 0;
+        int j = 0;
         int i = 1;
         lps[0] = 0;
         while(i<patternSize)
         {
             if(pattern.charAt(i)==pat.charAt(len))
-            {
-                length++;
-                lps[i] = length;
-                i++;
-            }
+                lps[i++] = ++j;
             else
             {
-                if(length!=0)
-                    length = lps[length-1];
+                if(j!=0)
+                    length = lps[j-1];
                 else
-                {
-                    lps[i] = length;
-                    i++;
-                }
+                    lps[i++] = j;
             }
         }
     }
