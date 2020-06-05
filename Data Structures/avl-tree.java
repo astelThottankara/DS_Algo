@@ -107,4 +107,84 @@ class AVLTree
         node.height = Math.max(height(node.left),height(node.right));
         return right;
     }
+	
+	private Node minValue(Node node)
+    {
+        while(node.left!=null)
+            node = node.left;
+        return node;
+    }
+    
+    public Node delete(int data)
+    {
+        return delete(root,data);
+    }
+    
+    private Node delete(Node node,int data)
+    {
+        if(node==null)
+            return root;
+        
+        if(node.data>data)
+            node.right = delete(node.right,data);
+        else if(node.data<data)
+            node.left = delete(node.left,data);
+        else
+        {
+            if(node.left==null || node.right==null)
+            {
+                Node temp = null;
+                if(node.left==null)
+                    temp = node.right;
+                else if(node.right==null)
+                    temp = node.left;
+                
+                if(temp==null)
+                {
+                    temp = node;
+                    node = null;
+                }
+                else
+                    node = temp;
+            }
+            else
+            {
+                Node temp = minValue(node.right);
+                node.data = temp.data;
+                node.right = delete(node.right,temp.data);
+            }
+        }
+        if(node==null)
+            return node;
+        
+        node.height = Math.max(height(node.left),height(node.right));
+        int bf = bf(node);
+        
+        //LL Case
+        if(bf>1 && bf(node.left)>=0)
+        {
+            return rightRotate(node);
+        }
+        
+        //LR Case
+        else if(bf>1 && bf(node.left)<0)
+        {
+            node.left = leftRotate(node.left);
+            return rightRotate(node);
+        }
+        
+        //RR Case
+        else if(bf<-1 && bf(node.right)<=0)
+        {
+            return leftRotate(node);
+        }
+        
+        //RL Case
+        else if(bf<-1 && bf(node.right)>0)
+        {
+            node.right = rightRotate(node.right);
+            return leftRotate(node);
+        }
+        return node;
+    }
 }
